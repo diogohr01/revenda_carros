@@ -1,0 +1,32 @@
+Criação de um projeto DJANGO:
+
+Criar um ambiente virtual - python3 -m venv venv (cria um ambiente virtual no seu projeto).
+
+source ./venv/bin/activate (abre a maquina virtual)
+
+pip3 install django(instalar o django no projeto)
+
+django-admin startproject app . (começa o projeto e indica o "." inicia na pasta carros)
+
+python3 manage.py runserver (abrir um servidor local para fazer testes no projeto)
+
+python3 manage.py startapp cars (cria um novo app dentro do projeto)
+
+app > settings.py:
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'cars',(dentro da pasta principal "app", sempre lançar o novo app dentro dela)
+]
+
+python3 manage.py makemigrations(varrer o projeto inteiro, app por app e vai montar a migrations)
+
+python3 manage.py migrate(executa as migrations)
+
+PARA CRIAR UM USUÁRIO PRECISA FAZER A MIGRATE PARA FUNCIONAR!!!!!:
+python3 manage.py createsuperuser 
+
