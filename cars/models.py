@@ -26,4 +26,9 @@ class Car(models.Model):
     def __str__(self):
         return self.model
     
+class CarInventory(models.Model):
+    cars_count = models.IntegerField()
+    cars_value = models.FloatField()
+    
+    
  
