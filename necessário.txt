@@ -6,6 +6,8 @@ source ./venv/bin/activate (abre a maquina virtual)
 
 pip3 install django(instalar o django no projeto)
 
+pip3 install django-cleanup (ele apaga todos os arquivos que está na MEDIA quando deletado algum model)
+
 django-admin startproject app . (começa o projeto e indica o "." inicia na pasta carros)
 
 python3 manage.py runserver (abrir um servidor local para fazer testes no projeto)
@@ -30,3 +32,6 @@ python3 manage.py migrate(executa as migrations)
 PARA CRIAR UM USUÁRIO PRECISA FAZER A MIGRATE PARA FUNCIONAR!!!!!:
 python3 manage.py createsuperuser 
 
+https://docs.djangoproject.com/pt-br/4.2/ref/class-based-views/
+
+https://docs.djangoproject.com/en/4.2/topics/signals/
