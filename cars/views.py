@@ -2,7 +2,7 @@ from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from cars.models import Car
+from cars.models import Car, CarInventory
 from cars.forms import CarModelForm
 from django.views import View
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
@@ -67,3 +67,20 @@ class CarDeleteView(DeleteView):
     model = Car
     template_name = 'car_delete.html'
     success_url = reverse_lazy('cars_list')  
+
+
+@method_decorator(login_required(login_url='login'), name='dispatch')        
+class CarInventoryListView(ListView):
+    model = CarInventory
+    template_name = 'cars_estoque.html'
+    context_object_name = 'inventory'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+       
+        inventory = CarInventory.objects.first()
+        if inventory:
+            context['cars_count'] = inventory.cars_count
+            context['cars_value'] = inventory.cars_value
+            context['created_at'] = inventory.created_at
+        return context

@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{%block content%}
+<style>
+
+    .estoque {
+        background-color: #e3e1e1;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+        text-align: center;
+        transition: all 0.3s ease;
+        max-width: 500px;
+        margin: 20px auto 0;
+        margin-bottom: 20px;
+      }
+</style>
+<div class= 'estoque'>
+    <p>Total de carros: {{ cars_count }}</p>
+    <p>Valor total dos carros: {{ cars_value }}</p>
+    <p>Atualizado em: {{ created_at }}</p>
+</div>
+
+{% endblock %}
+
