@@ -14,6 +14,10 @@ python3 manage.py runserver (abrir um servidor local para fazer testes no projet
 
 python3 manage.py startapp cars (cria um novo app dentro do projeto)
 
+pip freeze > requirements.txt (criar txt com as dependencias do projeto)
+
+pip install -r ./requirements.txt (baixar as dependencias do projeto)
+
 app > settings.py:
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -35,3 +39,28 @@ python3 manage.py createsuperuser
 https://docs.djangoproject.com/pt-br/4.2/ref/class-based-views/
 
 https://docs.djangoproject.com/en/4.2/topics/signals/
+
+
+
+CRIAR BANCO DE DADOS:
+
+psql -U postgres (abrir terminal postgres)
+
+CREATE DATABASE nome_do_projeto;  (CRIAR UM BANCO DE DADOS EM BRANCO, LEMBRAR DO ; NO FINAL)
+
+No seu projeto DJANGO baixar a dependencia - pip3 install psycopg2
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'carros',
+        'USER': 'postgres',
+        'PASSWORD': 'diogo3711',
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
+}
+
+segue padrão de conexão no django acima.
+
+
