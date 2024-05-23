@@ -63,4 +63,80 @@ DATABASES = {
 
 segue padrão de conexão no django acima.
 
+--------------------------------------------------------------------
+
+CRIADO O SERVIDOR E DENTRO DO LINUX SEMPRE:
+
+sudo apt update
+
+sudo apt upgrade
+
+CONFIGURAR O GIT NO SERVIDOR:
+
+Comandos para gerar chave SSH no servidor e adicionar chave no agente SSH:
+
+ssh-keygen -t ed25519 -C "<seu email do github>@email.com"
+
+após criar:
+
+ls -la 
+cd .ssh
+
+eval "$(ssh-agent -s)"
+
+ssh-add ~/.ssh/id_ed25519
+
+Comando para ler conteúdo da sua chave gerada:
+
+cat ~/.ssh/id_ed25519.pub
+
+
+Comando para testar autenticação:
+
+ssh -T git@github.com
+
+--------------------------------------------------
+
+Comando para instalar o PostgreSQL:
+
+sudo apt install postgresql postgresql-contrib
+
+Comando para acessar o Postgres Shell:
+
+sudo -u postgres psql
+
+Comando para alterar senha do usuário postgres:
+
+\password postgres
+
+Comando para criar banco de dados:
+
+CREATE DATABASE carros;
+
+-----------------------------------------
+
+
+Comandos para instalar dependências e ferramentas do Python:
+
+sudo apt install build-essential python3
+
+sudo apt install python3-dev
+
+sudo apt install python3-venv
+
+sudo apt install python3-pip
+
+cd app
+
+python3 -m venv venv
+
+Comandos git - commit e push:
+
+git commit -am "mensagem"
+
+git push origin master
+
+Comando git - pull:
+
+git pull
 
