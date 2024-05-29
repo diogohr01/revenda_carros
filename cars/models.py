@@ -15,6 +15,7 @@ class Car(models.Model):
     '''on_delete, ele protege os carros se acontecer de deletar a categoria'''
     '''related_name, ele coloca um nome na relação do carro com a marca(brand)'''
     brand = models.ForeignKey(Brand, on_delete=models.PROTECT, related_name='car_brand')
+    new_brand = models.ForeignKey(Brand, )
     factory_year = models.IntegerField(blank=True, null=True)
     model_year = models.IntegerField(blank=True, null=True)
     plate = models.CharField(max_length=10, blank=True, null=True)

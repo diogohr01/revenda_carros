@@ -45,9 +45,7 @@ class NewCarCreateView(CreateView):
     form_class = CarModelForm
     template_name = 'new_car.html'
     success_url = '/cars/'
-    
-    
-    
+       
 @method_decorator(login_required(login_url='login'), name='dispatch')        
 class CarDetailView(DetailView):
     model = Car

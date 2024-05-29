@@ -140,3 +140,86 @@ Comando git - pull:
 
 git pull
 
+
+--------------------
+
+USUARIO ROOT NO SERVIDOR:
+
+sudo su
+
+cd /
+
+cd var
+
+mkdir www
+
+cd www
+
+ssh-keygen -t ed25519 -C "<seu email do github>@email.com"
+
+eval "$(ssh-agent -s)"
+
+ssh-add /root/.ssh/id_ed25519
+
+cat /root/.ssh/id_ed25519.pub
+
+ssh -T git@github.com
+
+
+----------------------
+
+BAIXAR UWSGI
+
+Comando para instalar uWsgi:
+
+pip install uwsgi
+
+Comando para rodar uWsgi:
+
+uwsgi --http :8000 --module app.wsgi --chmod-socket=666
+
+---------------------------
+
+BAIXAR E CONFIGURAR O NGINX
+
+Comando para instalar o Nginx:
+
+sudo apt install nginx
+
+Comandos para criar carros.conf:
+
+cd /etc/nginx/sites-available/
+
+sudo nano carros.conf
+
+Padrão de configuração do .conf:
+
+upstream django {
+    server unix:///var/www/carros/carros.sock;
+    # server 127.0.0.1:8001;
+}
+
+
+server {
+    listen      8000;
+    server_name 3.91.54.220;
+    charset     utf-8;
+
+    client_max_body_size 75M;
+
+    location /media  {
+        alias /var/www/carros/media;
+    }
+
+    location /static {
+        alias /var/www/carros/static;
+    }
+
+    location / {
+        uwsgi_pass  django;
+        include     /var/www/carros/uwsgi_params;
+    }
+}
+
+
+
