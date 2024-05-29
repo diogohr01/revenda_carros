@@ -223,3 +223,15 @@ server {
 
 
 
+Comando para link simbólico do Nginx:
+
+sudo ln -s /etc/nginx/sites-available/carros.conf /etc/nginx/sites-enabled/
+Comando para coletar arquivos estáticos no Django:
+python manage.py collectstatic
+
+Comando para reiniciar o Nginx:
+sudo /etc/init.d/nginx restart
+
+Comando para subir uWsgi com socket:
+
+uwsgi --socket /var/www/carros/carros.sock --module app.wsgi --chmod-socket=66
